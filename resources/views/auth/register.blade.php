@@ -68,6 +68,15 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                <!-- Select Option Rol type -->
+                        <div class="row mb-3">
+                            <label for="role_id" class="col-md-4 col-form-label text-md-end"> {{ __('Register as:') }}</label>
+                            <select name="role_id" class="block  w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -25,9 +25,9 @@ use App\Http\Controllers\User\PostsController;
 */
 Route::group(['namespace' => 'User'],function(){
     Route::get('/',[HomeController::class,'index']);
-    Route::get('post',[PostController::class,'index'])->name('post');
-
+    
 });
+Route::get('posts',[PostsController::class,'index'])->name('posts');
 
 
 //Admin Routes
