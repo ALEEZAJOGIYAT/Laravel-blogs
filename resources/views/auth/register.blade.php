@@ -1,6 +1,6 @@
 @extends('../user/app')
 
-@section('bg-img',asset('user/img/contact-bg.jpg'))
+@section('bg-img',asset('user/img/login.webp'))
 @section('head')
 
 @endsection
@@ -71,10 +71,12 @@
                 <!-- Select Option Rol type -->
                         <div class="row mb-3">
                             <label for="role_id" class="col-md-4 col-form-label text-md-end"> {{ __('Register as:') }}</label>
-                            <select name="role_id" class="block  w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
-                            </select>
+                            <div class="col-md-6">
+                                <select name="role_id" class="block  w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
                         </div>
 
 

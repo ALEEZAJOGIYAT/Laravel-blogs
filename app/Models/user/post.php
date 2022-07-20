@@ -10,10 +10,22 @@ class post extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'title',
+        'subtitle',
+        'slug',
+        'body',
+    ];
+    protected $hidden=[];
 
     public function categories()
     {
-        return $this->belongsToMany('App\Model\user\category','category_posts')->withTimestamps();
+        return $this->belongsToMany('App\Models\user\category','category_post')->withTimestamps();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
 }

@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\ShowController;
 
 use App\Http\Controllers\User\HomeController;
-use App\Http\Controllers\User\PostsController;
+use App\Http\Controllers\User\UserPostController;
 
 
 
@@ -25,9 +25,10 @@ use App\Http\Controllers\User\PostsController;
 */
 Route::group(['namespace' => 'User'],function(){
     Route::get('/',[HomeController::class,'index']);
-    
+    Route::get('posts/{slug?}',[UserPostController::class,'index'])->name('posts');
 });
-Route::get('posts',[PostsController::class,'index'])->name('posts');
+
+
 
 
 //Admin Routes

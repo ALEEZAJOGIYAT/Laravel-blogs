@@ -52,13 +52,19 @@
                                 </div>
                               </div>
                               <br>
-                              <div class="form-group" style="margin-top:18px;">
-                                <label>Select Category</label>
-                                <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
-                                </select>
-                              </div>
-                              
+                            <div class="form-group">
+                              <label > Select Category</label>
+                              <select name='categories[]' class="block  w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                @foreach ($categories as $category)
+                                <option value='{{$category->id}}'>
+                                  {{$category->name}}
+                                </option>
+                                @endforeach
+
+                              </select>
+
                             </div>
+                          </div>
             </div>
             <!-- /.box-body -->
             

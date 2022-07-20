@@ -1,16 +1,30 @@
 @extends('../user/app')
 
-@section('bg-img',asset('user/img/post-bg.jpg'))
-@section('title','Posts')
-@section('sub-heading','view more posts')
+@section('bg-img',asset('user/img/blog.jpg'))
+@section('title',$slug->title)
+@section('sub-heading',$slug->subtitle)
 
 
 @section('main-content')
-<article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                </div>
+<article >
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <small>Created at {{ $slug->created_at }}</small>
+                @foreach ($slug->categories as $category)
+                <small class="pull-right" style="margin-right: 90px">  
+                    <a href="">{{ $category->name }}</a>
+                </small>
+                @endforeach
+                
             </div>
-        </article>
+            <div>
+                {{ $slug->body }}
+            </div>
+            <div class="fb-comments" data-href="{{ Request::url() }}" data-numposts="5"></div>
+        </div>
+    </div>
+
+</article>
 
 @endsection

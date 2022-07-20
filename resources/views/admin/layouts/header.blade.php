@@ -22,6 +22,22 @@
               <span class="hidden-xs"></span>
             </a>
           </li>
+          <li class="nav-item">
+                        @if (Auth::guest())
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('login') }}">Login</a>
+                        @else
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        @endif
+                        </li>
+
           <!-- Control Sidebar Toggle Button -->
         </ul>
       </div>

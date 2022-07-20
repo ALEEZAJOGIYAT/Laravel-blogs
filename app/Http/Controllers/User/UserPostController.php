@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\user\post;
 
-class HomeController extends Controller
+class UserPostController extends Controller
 {
     //
-    public  function index()
+    public function index(post $slug)
     {
-        return view('home');
+        return view('user.post',compact('slug'));
     }
-
 }

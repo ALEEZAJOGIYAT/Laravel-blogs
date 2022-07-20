@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\user\post;
+use App\Models\user\category;
 
 
 
@@ -31,17 +32,12 @@ class PostController extends Controller
      */
     public function create()
     {
-                    return view('admin.post.post');
+        $categories=category::all();
+        return view('admin.post.post',compact('categories'));
 
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
             $post = post::create([
@@ -53,18 +49,13 @@ class PostController extends Controller
             ]);
 
             $post->save();
+            $post->categories()->sync($request->categories);
+
             return redirect( route('post.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
         
     }
 
@@ -76,8 +67,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $editPost =post::where('id',$id)->first();
-        return view('admin.post.edit',compact('editPost'));
+        $editPost =post::with('categories')->where('id',$id)->first();
+        $categories=category::all();
+
+        return view('admin.post.edit',compact('editPost','categories'));
         //
     }
 
@@ -91,6 +84,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return $request->all();
         $post = post::find($id);
         $post->title = $request ->title;
         $post->subtitle = $request->subtitle;
@@ -98,9 +92,9 @@ class PostController extends Controller
         $post->body = $request->body;
  
         $post->save();
-        return redirect( route('post.index'));
+        $post->categories()->sync($request->categories);
 
-        
+        return redirect( route('post.index'));        
     }
 
     /**

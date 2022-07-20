@@ -1,6 +1,6 @@
 @extends('../user/app')
 
-@section('bg-img',asset('user/img/contact-bg.jpg'))
+@section('bg-img',asset('user/img/login.webp'))
 @section('head')
 
 @endsection

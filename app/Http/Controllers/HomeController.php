@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\user\post;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,8 @@ class HomeController extends Controller
     {
 
        if(Auth::user()->hasRole('user')){
-        return view('home');
+        $posts =post::all();
+        return view('user.blogs',compact('posts'));
        }elseif(Auth::user()->hasRole('admin')){
             return view('admin/home');
         }
