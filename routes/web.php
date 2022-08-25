@@ -7,9 +7,11 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\ShowController;
+use App\Http\Controllers\Admin\UserController;
 
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserPostController;
+use Laravel\Socialite\Facades\Socialite;
 
 
 
@@ -38,6 +40,7 @@ Route::group(['namespace' => 'User'],function(){
 Route::get('admin/home',[AdminHomeController::class,'index'])->name('admin.home');
 Route::resource('admin/post',PostController::class);
 Route::resource('admin/category',CategoryController::class);
+Route::resource('admin/user',UserController::class);
 
 //admin auth routes
 
@@ -46,7 +49,14 @@ Route::fallback(function(){
     return view('errors.404');
 });
 Auth::routes();
+
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Google login
+Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+
+ 
 
 /**
  * Route::group(['namespace' => 'Admin'],function(){

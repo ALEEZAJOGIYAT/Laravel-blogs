@@ -67,6 +67,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        //post::
         $editPost =post::with('categories')->where('id',$id)->first();
         $categories=category::all();
 

@@ -27,7 +27,7 @@
         <li class="active treeview">
         <li class=""><a href="{{route('post.index')}}"><i class="fa fa-circle-o"></i> Post</a></li>
         <li class=""><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Category</a></li>
-        <li class=""><a href=""><i class="fa fa-circle-o"></i> User</a></li>
+        <li class=""><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i> User</a></li>
 
         </li>
       </ul>

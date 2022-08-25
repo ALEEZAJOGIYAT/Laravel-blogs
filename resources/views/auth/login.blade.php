@@ -74,6 +74,13 @@
                                 <a class="btn btn-link" href="{{ route('register') }}">
                                         If you don't have an account register here
                                     </a>
+                                <br>
+                                <h4> OR </h4>
+                                <br>
+                                <a href="{{ route ( 'login.google' )}}" class='btn btn-dark btn-block '>
+                                    Login with Google
+                                </a>
+
                             </div>
                         </div>
                     </form>

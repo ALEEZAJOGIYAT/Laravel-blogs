@@ -19,7 +19,6 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Title</h3>
         <a class='col-lg-offset-5 btn btn-success' href="{{ route('post.create') }}">Add New</a>
       </div>
       <div class="box-body">
